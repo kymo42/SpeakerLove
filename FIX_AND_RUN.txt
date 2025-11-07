@@ -1,0 +1,130 @@
+VOICE ISOLATOR - FIXED VERSION
+================================
+
+THE FIX:
+✓ Improved error handling
+✓ Better device validation
+✓ More detailed error messages
+✓ Automatic device selection
+✓ Old config cleared (fresh start)
+
+TO RUN:
+======
+
+Option A - GUI (Recommended):
+  Double-click: run.bat
+  OR: python voice_isolator.py
+
+Option B - Command Line:
+  1. Open Command Prompt
+  2. cd C:\Users\0\VoiceIsolator
+  3. python voice_isolator.py
+
+STEP BY STEP:
+=============
+
+1. Run the program (see above)
+
+2. DEVICE SELECTION - The GUI will show three dropdowns:
+
+   Microphone:
+     - Look for your actual microphone name
+     - Examples: "Microphone (Sound Blaster)", "Conexant", "ATH-M50xBT"
+     - Pick the one that is NOT a virtual device
+     - DO NOT pick: "Voicemeeter", "Output", "OCULUSVAD"
+
+   Speaker Loopback:
+     - Look for loopback device
+     - Best options:
+       [15] Voicemeeter In 1 (VB-Audio Voic...
+       [42] Stereo Mix (Conexant HD...)
+     - Pick whichever one is available
+
+   Output Virtual Mic:
+     - This is where clean voice goes
+     - Any output device works
+     - Example: [13] Microsoft Sound Mapper - Output
+     - Or: [6] Speakers (Audioengine HD3)
+
+3. Once all three selected, click "Start Voice Isolation"
+
+4. If error appears: Read the message carefully, fix it, and try again
+
+5. If it works:
+   - Button changes to "Stop Voice Isolation" (green)
+   - Status shows "RUNNING (GREEN LIGHT)"
+   - You can adjust sliders while running
+
+DEVICE REFERENCE (Based on your system):
+=========================================
+
+INPUT DEVICES (Microphones):
+  [1] Microphone (Sound Blaster Audigy 5/Rx) <-- USE THIS
+  [3] Headset Microphone (Oculus Virt...) <-- or this
+  [13] Microphone (Sound Blaster Audigy 5/Rx) <-- or this
+
+SPEAKER LOOPBACK (Recommended):
+  [15] Voicemeeter In 1 (VB-Audio Voic...) <-- BEST CHOICE
+  [42] Stereo Mix (Conexant HD...) <-- ALSO GOOD
+  Any "Voicemeeter In" device works
+
+OUTPUT DEVICES:
+  [6] Speakers (Audioengine HD3) <-- GOOD CHOICE
+  [13] Microsoft Sound Mapper - Output <-- ALSO WORKS
+  Any speakers device works
+
+QUICK START:
+============
+
+Mic: [1] Microphone (Sound Blaster Audigy 5/Rx)
+Loopback: [15] Voicemeeter In 1 (VB-Audio Voic...)
+Output: [6] Speakers (Audioengine HD3)
+
+Then click "Start Voice Isolation"
+
+If that doesn't work:
+  Run: python list_devices.py
+  Find your microphone, loopback, and speakers
+  Select them in the GUI
+
+TESTING:
+========
+
+1. Start the program
+2. Select devices
+3. Click "Start Voice Isolation"
+4. Play YouTube or music
+5. Speak into microphone
+6. Adjust "Subtraction Strength" slider to 1.0-1.5
+7. Have a friend test you on Discord
+8. They should hear ONLY your voice
+
+SUCCESS = Speaker audio removed, only voice transmitted!
+
+TROUBLESHOOTING:
+================
+
+Error: "Invalid device"
+  → Check all three dropdowns have selections
+  → Make sure device numbers haven't changed (reboot can change them)
+  → Run: python list_devices.py to see current devices
+
+Error: "PaErrorCode"
+  → Device selection is wrong
+  → Try different device combinations
+  → Make sure you're picking INPUT devices for Mic and Loopback
+
+No audio output
+  → Check Discord/Teams has correct output microphone selected
+  → Check Windows Volume Mixer
+  → Try clicking "Refresh Devices" button
+
+Speaker audio still plays
+  → Increase "Subtraction Strength" slider to 1.5 or 2.0
+  → Try different loopback device
+
+Voice is quiet
+  → Decrease "Subtraction Strength" slider to 0.8 or 0.5
+  → Check microphone volume in Windows
+
+For more help: See SETUP.md or README.md

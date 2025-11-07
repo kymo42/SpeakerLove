@@ -1,0 +1,87 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║              SIMPLIFIED VERSION - USE THIS NOW!                             ║
+║                                                                              ║
+║        Fixes permission errors and only shows available devices             ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+WHAT'S FIXED:
+═════════════
+
+✓ No more config.json permission errors
+✓ Only shows devices that actually work
+✓ Simpler, cleaner interface
+✓ No config saving required
+✓ Better error messages
+
+
+HOW TO RUN:
+═══════════
+
+Option 1: New Simplified Version (RECOMMENDED)
+  python voice_isolator_simple.py
+
+Option 2: Original Version
+  python voice_isolator.py
+
+
+WHEN YOU RUN IT:
+════════════════
+
+1. GUI opens
+2. Click "Refresh Devices" (usually already done)
+3. Select three devices from dropdowns:
+   - Microphone: Pick one (most say "Microphone (Sound Blaster...)")
+   - Speaker Loopback: Pick one (should show "Input (Voicemeeter...)" or "Stereo Mix")
+   - Output Device: Pick one (should show "Speakers" or "Sound Mapper")
+4. Click "Start Voice Isolation"
+5. Wait for status to turn GREEN "RUNNING"
+6. Test it!
+
+
+WHAT TO EXPECT:
+════════════════
+
+Only REAL devices will show in dropdowns:
+  - Microphone: Real microphones only
+  - Loopback: Real input devices only
+  - Output: Real output devices only
+
+If a device isn't in the list, it's not available on your system.
+
+
+IF YOU GET AN ERROR:
+═════════════════════
+
+Try different devices:
+  - Different microphone from the list
+  - Different loopback device
+  - Different output device
+
+The error message will tell you which device failed.
+
+
+TESTING:
+════════
+
+Once it shows GREEN "RUNNING":
+
+1. Open Discord/Teams/Zoom
+2. Set microphone to the output device you selected
+3. Play YouTube or music
+4. Speak into your microphone
+5. Have friend listen - they should hear ONLY your voice
+6. Adjust "Subtraction Strength" slider if needed
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+START NOW:
+
+python voice_isolator_simple.py
+
+OR double-click run.bat (if it still works with the new script)
+
+═══════════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,117 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                          TRY THIS VERSION NOW!                              ║
+║                                                                              ║
+║              Updated to show ALL loopback options available                  ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+WHAT'S DIFFERENT:
+═════════════════
+
+Old version: Only showed specific loopback devices
+New version: Shows ALL available input devices
+
+Why? You can try them all and find which one works!
+
+
+HOW TO RUN:
+═══════════
+
+python voice_isolator_final.py
+
+
+WHAT YOU'LL SEE:
+════════════════
+
+Microphone dropdown:
+  [76] Microphone (Sound Blaster Audigy 5/Rx)
+  [115] Microphone (Conexant HD Audio capture)
+  etc.
+
+Speaker Loopback dropdown: (NOW SHOWS ALL INPUT DEVICES!)
+  [0] Microphone (Sound Blaster Audigy 5/Rx)
+  [1] Microphone (Sound Blaster Audigy 5/Rx)
+  [29] Microphone (Sound Blaster Audigy 5/Rx)
+  [31] Voicemeeter Out A2 (VB-Audio Voicemeeter VAIO)
+  [33] "What U Hear" (Sound Blaster Audigy 5/Rx)  ← TRY THIS FIRST!
+  [34] Voicemeeter Out A1 (VB-Audio Voicemeeter VAIO)
+  ... and many more ...
+  [114] Stereo Mix (Conexant HD Stereo Mix)  ← OR TRY THIS!
+
+Output dropdown:
+  [13] Microsoft Sound Mapper - Output
+  [116] Speakers (Conexant HD Audio output)
+  etc.
+
+
+THE STRATEGY:
+══════════════
+
+1. Your Microphone: Use [76] (already selected by default)
+
+2. Speaker Loopback: TRY THESE IN ORDER:
+   [33] "What U Hear" (Sound Blaster Audigy 5/Rx)
+   [114] Stereo Mix (Conexant HD Stereo Mix)
+   [31] Voicemeeter Out A2
+   [34] Voicemeeter Out A1
+   Then try others if those don't work
+
+3. Output: Use [13] (already selected by default)
+
+
+HOW TO TEST EACH:
+═════════════════
+
+1. Select loopback device
+2. Click "Start Voice Isolation"
+3. If GREEN "RUNNING":
+   - Play YouTube
+   - Speak into mic
+   - Check Discord
+   - If speaker audio is removed: SUCCESS!
+   - If not: Adjust "Subtraction Strength" slider
+4. If RED ERROR:
+   - Try next loopback device
+   - Repeat
+
+
+RECOMMENDED ORDER TO TRY:
+═════════════════════════
+
+Try #1:
+  Microphone: [76]
+  Loopback: [33] "What U Hear" (Sound Blaster Audigy 5/Rx)
+  Output: [13]
+
+Try #2:
+  Microphone: [76]
+  Loopback: [114] Stereo Mix (Conexant HD Stereo Mix)
+  Output: [13]
+
+Try #3:
+  Microphone: [76]
+  Loopback: [31] Voicemeeter Out A2
+  Output: [13]
+
+Try #4:
+  Microphone: [76]
+  Loopback: [34] Voicemeeter Out A1
+  Output: [13]
+
+Try #5:
+  Try other Voicemeeter devices: [36], [38], [40], etc.
+
+
+═════════════════════════════════════════════════════════════════════════════════
+
+RUN THIS NOW:
+
+python voice_isolator_final.py
+
+OR if that doesn't work, use previous version:
+
+python voice_isolator_simple.py
+
+═════════════════════════════════════════════════════════════════════════════════

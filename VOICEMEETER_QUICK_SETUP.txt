@@ -1,0 +1,269 @@
+================================================================================
+                    VOICEMEETER QUICK SETUP (5 MINUTES)
+================================================================================
+
+YOU ONLY HAVE VOICEMEETER - THAT'S PERFECT!
+(Stereo Mix is not needed)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+THE GOAL:
+  Make VoiceMeeter the "router" for all your audio
+  So Voice Isolator can capture what's being played
+  Then remove it from your microphone
+
+═══════════════════════════════════════════════════════════════════════════════
+
+STEP 1: OPEN VOICEMEETER (2 minutes)
+════════════════════════════════════
+
+1. Click Start → Search "VoiceMeeter"
+2. Open VoiceMeeter application
+3. You'll see control panel with:
+   - Left side: Input devices
+   - Middle: Mixing controls
+   - Right side: Output devices
+
+STEP 2: SET YOUR SPEAKERS (1 minute)
+═════════════════════════════════════
+
+In VoiceMeeter:
+
+1. Look for "Hardware Out 1" section (usually left-bottom area)
+2. Click the dropdown next to it
+3. Select your speakers:
+   - "Audioengine HD3" OR
+   - "Sound Blaster Audigy 5/Rx" OR
+   - "Speakers"
+   
+   (Anything that's your actual speakers)
+
+4. You should now hear system sounds through VoiceMeeter
+
+STEP 3: ROUTE APPS TO VOICEMEETER (2 minutes)
+═══════════════════════════════════════════════
+
+So YouTube, Discord, etc. send audio THROUGH VoiceMeeter:
+
+1. Open: Windows Settings
+2. Go to: Sound (search "Sound Settings")
+3. Click: "Volume mixer" or "Advanced"
+4. Look for: "App volume and device preferences"
+5. For EACH app you want to route (YouTube, Spotify, etc.):
+   - Find the app name
+   - Click the dropdown under it
+   - Select: "VoiceMeeter Virtual Input"
+
+This makes app audio go THROUGH VoiceMeeter instead of direct to speakers
+
+STEP 4: ENABLE VOICEMEETER OUTPUT (30 seconds)
+═══════════════════════════════════════════════
+
+In VoiceMeeter:
+
+1. Look for buttons at the bottom: A1, A2, B1, B2
+2. Make sure "A1" button is HIGHLIGHTED/PRESSED
+   (This sends audio to Hardware Out 1 = your speakers)
+
+DONE! VoiceMeeter is now ready
+
+═══════════════════════════════════════════════════════════════════════════════
+
+VOICE ISOLATOR SETUP:
+═════════════════════
+
+Now run Voice Isolator:
+
+python voice_isolator.py
+(or double-click run.bat)
+
+Select these devices:
+
+Microphone:
+  [1] Microphone (Sound Blaster Audigy 5/Rx)
+  
+Speaker Loopback:
+  [56] Voicemeeter In 1 (VB-Audio...) [48000Hz, 2ms latency]
+  
+  Or if that doesn't exist:
+  [15] Voicemeeter In 1 (VB-Audio...)
+  
+  Or any device with "Voicemeeter" in the name
+
+Output:
+  [6] Speakers (Audioengine HD3)
+
+Then click: "Start Voice Isolation"
+
+Status should show: GREEN "RUNNING"
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TESTING:
+═════════
+
+1. Open Voice Isolator (if not already)
+2. Click "Start Voice Isolation" (should be GREEN)
+3. Open YouTube in browser
+4. IMPORTANT: Set YouTube output to "VoiceMeeter Virtual Input" in Volume Mixer
+5. Play a song/video
+6. Speak into your microphone
+7. You should hear BOTH through your speakers
+8. Adjust "Subtraction Strength" slider:
+   - Try 1.0
+   - Then 1.5
+   - Then 2.0
+   - Until YouTube disappears and only your voice remains
+9. Success = YouTube audio is removed from microphone!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+DISCORD TEST:
+══════════════
+
+1. Open Discord (while Voice Isolator is running and GREEN)
+2. Go to Discord Settings → Voice & Video
+3. Microphone: Set to your "Output" device from Voice Isolator
+   (In this example: [6] Speakers or similar)
+4. Join a voice channel
+5. Have a friend join
+6. Play YouTube
+7. Speak to your friend
+8. They should hear ONLY your voice (no YouTube)
+9. SUCCESS!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+WHAT IF YOUTUBE ISN'T PLAYING THROUGH SPEAKERS?
+═════════════════════════════════════════════════
+
+1. Go to: Settings → Sound → Volume mixer
+2. Find: Chrome (or your browser)
+3. See output device dropdown
+4. Change to: "VoiceMeeter Virtual Input"
+5. YouTube should now play
+6. If still not: Restart browser, then retry
+
+═══════════════════════════════════════════════════════════════════════════════
+
+WHAT IF YOUTUBE IS PLAYING BUT VOICE ISOLATOR DOESN'T REMOVE IT?
+═════════════════════════════════════════════════════════════════
+
+Try these in order:
+
+1. Make sure Voice Isolator status is GREEN "RUNNING"
+2. Increase "Subtraction Strength" slider:
+   1.0 → 1.5 → 2.0
+3. Try different Voicemeeter input device:
+   [15] instead of [56]
+   [46] instead of [15]
+   [49] instead of [46]
+4. Make sure microphone is correct ([1] Microphone...)
+5. Check YouTube is actually routing through VoiceMeeter
+   (Open Volume Mixer and verify YouTube shows "VoiceMeeter Virtual Input")
+
+═══════════════════════════════════════════════════════════════════════════════
+
+DEVICE COMBINATIONS TO TRY:
+════════════════════════════
+
+If first combination doesn't work, try these:
+
+COMBO 1 (Start with this):
+  Mic: [1] Microphone (Sound Blaster Audigy 5/Rx)
+  Loopback: [56] Voicemeeter In 1 (48000Hz, low latency)
+  Output: [6] Speakers (Audioengine HD3)
+
+COMBO 2:
+  Mic: [13] Microphone (Sound Blaster Audigy 5/Rx)
+  Loopback: [15] Voicemeeter In 1 (VB-Audio...)
+  Output: [20] Speakers (Audioengine HD3)
+
+COMBO 3:
+  Mic: [32] Microphone (Sound Blaster Audigy 5/Rx)
+  Loopback: [46] Voicemeeter Input (VB-Audio...)
+  Output: [13] Microsoft Sound Mapper
+
+COMBO 4:
+  Mic: [50] Microphone (SB Audigy 5/Rx)
+  Loopback: [49] Voicemeeter AUX Input (...)
+  Output: [5] Microsoft Sound Mapper
+
+Each combo uses different hardware configs. Try them in order.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDERS & ADJUSTMENTS:
+═══════════════════════
+
+Subtraction Strength: 0.5 to 2.0
+  • 0.5 = Remove barely any speaker audio (keeps your voice clear)
+  • 1.0 = Default (balanced)
+  • 1.5 = Remove more speaker audio
+  • 2.0 = Remove maximum speaker audio
+
+Delay Compensation: 0 to 1000
+  • Usually 0 is fine
+  • If timing seems off, try 100, 200, 300, etc.
+
+Start with:
+  Subtraction Strength = 1.0
+  Delay Compensation = 0
+  
+Adjust from there based on test results
+
+═══════════════════════════════════════════════════════════════════════════════
+
+THE FLOW (What's Happening):
+═════════════════════════════
+
+YouTube
+  ↓
+VoiceMeeter Virtual Input
+  ↓
+VoiceMeeter (mixes it)
+  ↓
+Hardware Out 1 (your speakers)
+  ↓
+Audio plays from speakers
+  ↓
+Your microphone picks it up
+  ↓
+Voice Isolator ALSO captures from Voicemeeter input
+  ↓
+Voice Isolator does math: Mic - VoiceMeeter = Clean Voice
+  ↓
+Output device gets: ONLY YOUR VOICE
+  ↓
+Discord/Teams receives: ONLY YOUR VOICE
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SUMMARY:
+═════════
+
+1. ✓ VoiceMeeter configured (Hardware Out 1 = speakers)
+2. ✓ Apps routed to VoiceMeeter (Volume Mixer setting)
+3. ✓ Voice Isolator started (GREEN status)
+4. ✓ Correct devices selected (Mic, Voicemeeter In, Output)
+5. ✓ Subtraction Strength adjusted (1.0-2.0)
+6. ✓ Discord/Teams/Zoom set to output device
+7. ✓ Tested: Friend hears only your voice
+8. ✓ SUCCESS!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+NEXT STEP:
+═══════════
+
+1. Open VoiceMeeter
+2. Follow steps 1-4 above
+3. Run Voice Isolator
+4. Select devices
+5. Click Start
+6. Test with YouTube
+7. Adjust slider
+8. Configure Discord/Teams
+9. Enjoy clean voice!
+
+═══════════════════════════════════════════════════════════════════════════════

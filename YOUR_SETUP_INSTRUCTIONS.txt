@@ -1,0 +1,203 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                  COMPLETE GAMING SETUP FOR YOUR SYSTEM                      ║
+║                                                                              ║
+║                   Voice Isolator + No Mic Feedback                           ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+YOUR AUDIO DEVICES:
+═══════════════════
+
+Microphones:
+  [76] Microphone (Sound Blaster Audigy 5/Rx) ← USE THIS
+
+Loopback Options (try in order):
+  [33] "What U Hear" (Sound Blaster Audigy 5/Rx) ← TRY FIRST
+  [114] Stereo Mix (Conexant HD Stereo Mix) ← TRY SECOND
+  [31], [34], [35], [36] etc. (Voicemeeter options) ← TRY THIRD
+
+Output:
+  [13] Microsoft Sound Mapper - Output ← USE THIS
+
+
+PART 1: DISABLE MIC FEEDBACK (SIDETONE)
+═════════════════════════════════════════
+
+This stops you from hearing your own voice through speakers.
+
+Windows 11 Steps:
+  1. Settings → System → Sound
+  2. Scroll down to "Microphone"
+  3. Click "Microphone (Sound Blaster Audigy 5/Rx)"
+  4. Click "Device properties"
+  5. Look for "Additional device options"
+  6. Find "Listen to this device" or "Monitoring"
+  7. Set to OFF
+  8. Click Apply and OK
+
+Windows 10 Steps:
+  1. Right-click speaker in taskbar
+  2. Click "Open Sound settings"
+  3. Click "Volume mixer"
+  4. Find your microphone
+  5. Right-click → Properties
+  6. Go to "Levels" tab
+  7. Find any "Listen to this device" or "Monitoring" 
+  8. Set to OFF
+  9. Click OK
+
+Sound Blaster Control Panel (Alternative):
+  1. Right-click Sound Blaster icon in taskbar
+  2. Open Sound Blaster Control Panel
+  3. Find "Microphone" settings
+  4. Disable "Monitor" or "Monitoring"
+  5. Apply
+
+
+PART 2: CONFIGURE VOICE ISOLATOR
+═════════════════════════════════════
+
+This removes game audio from your voice transmission.
+
+Steps:
+  1. Run: python voice_isolator_correct.py
+
+  2. Select devices:
+     Microphone: [76] Microphone (Sound Blaster Audigy 5/Rx)
+     Loopback: [33] "What U Hear" (or [114] Stereo Mix if [33] fails)
+     Output: [13] Microsoft Sound Mapper - Output
+
+  3. Click "Start Voice Isolation"
+
+  4. Wait for GREEN "RUNNING" status
+
+  5. If RED error, try different loopback: [114], [31], [34], etc.
+
+
+PART 3: CONFIGURE YOUR GAME
+══════════════════════════════
+
+Game Settings (varies by game):
+
+Discord (for game chat):
+  1. User Settings → Voice & Video
+  2. Microphone: Select output device from Voice Isolator
+  3. Microphone Volume: Set to comfortable level
+  4. Voice Activity: Enable
+  5. Done
+
+In-Game Chat:
+  Check if game has microphone settings:
+  1. Settings → Audio/Voice
+  2. Microphone Device: Select same output device
+  3. Microphone Volume: Comfortable level
+  4. Done
+
+
+PART 4: TEST IT
+═════════════════
+
+Testing procedure:
+
+1. Voice Isolator: Ensure status is GREEN "RUNNING"
+
+2. Open your game
+
+3. Play game audio (music, effects, etc.)
+
+4. Speak into microphone
+
+5. Have teammate listen on Discord/In-Game Chat
+   They should hear: ONLY YOUR VOICE, NO GAME AUDIO
+
+6. Check yourself on speaker
+   You should hear: GAME AUDIO ONLY, NOT YOUR VOICE
+
+7. If game audio still in voice:
+   - Increase "Subtraction Strength" slider in Voice Isolator (1.0 → 1.5 → 2.0)
+
+8. If you hear yourself:
+   - Mic feedback might not be fully disabled
+   - Check Windows Sound Settings again
+   - Disable "Listen to this device" more thoroughly
+
+
+QUICK REFERENCE:
+═════════════════
+
+Before Gaming Session:
+  1. Disable mic feedback in Windows Sound Settings
+  2. Run Voice Isolator: python voice_isolator_correct.py
+  3. Select devices: [76], [33], [13]
+  4. Click "Start Voice Isolation" → Wait for GREEN
+  5. Start game and test
+
+During Gaming:
+  - Adjust "Subtraction Strength" slider if needed
+  - Don't adjust device selections (leave Voice Isolator running)
+  - Play normally
+
+After Gaming:
+  - Click "Stop Voice Isolation" in Voice Isolator
+  - Close Voice Isolator
+
+
+TROUBLESHOOTING:
+═════════════════
+
+Problem: You hear your own voice through speakers
+Solution: Mic feedback not disabled in Windows
+  → Go back to Part 1: Disable Sidetone
+  → Make sure "Listen to this device" is OFF
+
+Problem: Teammates hear game audio
+Solution: Subtraction strength too low
+  → In Voice Isolator: Increase slider to 1.5 or 2.0
+  → Try loopback: [114] instead of [33]
+
+Problem: Voice Isolator won't start (RED error)
+Solution: Wrong loopback device selected
+  → Try [114] Stereo Mix instead of [33]
+  → Try [31], [34], [35] Voicemeeter options
+
+Problem: No output in Discord/Game
+Solution: Wrong device selected
+  → Make sure Discord/Game set to output device [13]
+  → Check Windows Sound Settings
+
+
+═════════════════════════════════════════════════════════════════════════════════
+
+FINAL GAMING SETUP:
+
+Your Voice Path:
+  Microphone [76]
+    ↓
+  Game/Discord receives it
+    ↓
+  Teammates hear ONLY your voice
+    ↓
+  (No game audio!)
+
+You Hear:
+  Game audio through speakers
+    ↓
+  But NOT your own voice
+    ↓
+  (No echo!)
+
+Result: Perfect competitive gaming environment!
+
+═════════════════════════════════════════════════════════════════════════════════
+
+START HERE:
+
+1. Disable mic feedback using Part 1 instructions
+2. Run: python voice_isolator_correct.py
+3. Test in your game
+4. Adjust if needed
+5. Enjoy clean voice gaming!
+
+═════════════════════════════════════════════════════════════════════════════════

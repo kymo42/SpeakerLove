@@ -1,0 +1,205 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                  CORRECT SETUP - NO VOICE ECHO!                             ║
+║                                                                              ║
+║        Voice Isolator outputs to VIRTUAL MIC, not to speakers                ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+THE REAL ISSUE:
+════════════════
+
+You were sending Voice Isolator OUTPUT to SPEAKERS:
+  Your Voice → Voice Isolator → Speakers → You hear it!  (WRONG!)
+
+What you actually need:
+  Your Voice → Voice Isolator → Virtual Microphone → Discord (NOT speakers!)
+
+
+THE FIX:
+═════════
+
+Change Voice Isolator OUTPUT to a VIRTUAL MICROPHONE
+
+Available virtual microphones on your system:
+  [46] Voicemeeter Input (VB-Audio Voicemeeter VAIO) ← OUTPUT device
+  [49] Voicemeeter AUX Input (VB-Audio Voicemeeter VAIO) ← OUTPUT device
+  [62] Voicemeeter AUX Input (VB-Audio Voicemeeter VAIO) ← OUTPUT device
+  [69] Voicemeeter In 3 (VB-Audio Voicemeeter VAIO) ← OUTPUT device
+
+(These are "OUTPUT" devices that act as VIRTUAL MICROPHONE inputs!)
+
+
+HOW THIS WORKS:
+════════════════
+
+1. Your microphone input: [76] Microphone (Sound Blaster...)
+
+2. Loopback/speaker audio: [33] "What U Hear" or [114] Stereo Mix
+
+3. Voice Isolator processes: Voice - Speaker Audio = Clean Voice
+
+4. Voice Isolator OUTPUT goes to: [46] Voicemeeter Input (VIRTUAL MIC!)
+   (NOT to speakers!)
+
+5. Discord/Game INPUT set to: [46] Voicemeeter Input
+
+6. Result: Discord receives ONLY clean voice, NOT from speakers
+
+
+THE AUDIO FLOW:
+════════════════
+
+┌─ Real Microphone [76]
+│     ↓
+│  Voice Isolator
+│     ↓ (processes voice)
+│  Output [46] Voicemeeter Input (VIRTUAL MICROPHONE)
+│     ↓
+│  Discord/Game listens to [46]
+│     ↓
+│  Teammates hear clean voice
+│
+├─ Your Speakers (play game audio ONLY)
+│     ↓
+│  Loopback [33] (captures what's playing)
+│     ↓
+│  Sent to Voice Isolator for subtraction
+│
+└─ NOT connected to speakers anymore! (No echo!)
+
+
+STEP-BY-STEP SETUP:
+════════════════════
+
+STEP 1: Run Voice Isolator
+  python voice_isolator_correct.py
+
+STEP 2: Select devices:
+  Microphone:       [76] Microphone (Sound Blaster Audigy 5/Rx)
+  Loopback:         [33] "What U Hear" (Sound Blaster Audigy 5/Rx)
+  Output:           [46] Voicemeeter Input ← VIRTUAL MIC, NOT SPEAKERS!
+
+STEP 3: Click "Start Voice Isolation"
+  Wait for GREEN "RUNNING"
+
+STEP 4: Configure Discord
+  1. Discord Settings → Voice & Video
+  2. Microphone: [46] Voicemeeter Input
+  3. Test microphone
+  4. Should show audio when you speak
+  5. Done!
+
+STEP 5: Configure Your Game
+  Game Settings → Audio/Voice
+  Microphone: [46] Voicemeeter Input (or same as Discord)
+
+STEP 6: Test
+  1. Play game audio
+  2. Speak into microphone
+  3. Check yourself on Discord
+  4. You should NOT hear your own voice through speakers
+  5. Teammates SHOULD hear your clean voice
+  6. Success!
+
+
+VIRTUAL MICROPHONE OPTIONS:
+══════════════════════════════
+
+If [46] doesn't work, try these (in order):
+  [46] Voicemeeter Input (VB-Audio Voicemeeter VAIO)
+  [49] Voicemeeter AUX Input (VB-Audio Voicemeeter VAIO)
+  [62] Voicemeeter AUX Input (VB-Audio Voicemeeter VAIO)
+  [69] Voicemeeter In 3 (VB-Audio Voicemeeter VAIO)
+
+All of these are "OUTPUT" devices that Discord can use as "INPUT" microphones!
+
+
+LOOPBACK OPTIONS:
+═══════════════════
+
+For capturing game audio (unchanged from before):
+  [33] "What U Hear" (Sound Blaster Audigy 5/Rx) ← TRY FIRST
+  [114] Stereo Mix (Conexant HD Stereo Mix) ← TRY IF [33] FAILS
+
+
+WHY THIS WORKS:
+═════════════════
+
+VoiceMeeter's virtual devices are bidirectional:
+  - As OUTPUT: Software can send audio TO them
+  - As INPUT: Discord can read audio FROM them
+
+So when Voice Isolator sends clean voice to [46]:
+  - It becomes available as a microphone for Discord
+  - Discord reads it as if it's a real microphone
+  - Your speakers never play it (no echo!)
+  - Teammates receive the clean voice
+
+
+TROUBLESHOOTING:
+════════════════
+
+Problem: Discord doesn't show [46] in microphone list
+Solution:
+  1. Close Discord completely
+  2. Ensure Voice Isolator is running with [46] as output
+  3. Restart Discord
+  4. [46] should now appear in microphone list
+
+Problem: [46] shows but no audio
+Solution:
+  1. Check Voice Isolator status is GREEN
+  2. Speak into microphone
+  3. Discord microphone test should show green bar
+  4. If not: Try next virtual mic ([49], [62], [69])
+
+Problem: Still hearing your voice through speakers
+Solution:
+  1. Double-check output is [46] (not [13] or [116])
+  2. Make sure game audio is routed correctly
+  3. Try different loopback: [114] instead of [33]
+
+
+═════════════════════════════════════════════════════════════════════════════════
+
+FINAL CONFIGURATION:
+═════════════════════
+
+Voice Isolator Settings:
+  Microphone:       [76]
+  Loopback:         [33] or [114]
+  Output:           [46] Voicemeeter Input
+
+Discord Settings:
+  Microphone:       [46] Voicemeeter Input
+
+Game Settings:
+  Microphone:       [46] Voicemeeter Input
+
+
+RESULT:
+════════
+
+✓ You don't hear yourself (no echo!)
+✓ Teammates hear only your voice
+✓ Game audio removed from your transmission
+✓ Perfect gaming communication!
+
+
+DO THIS NOW:
+
+1. Run: python voice_isolator_correct.py
+
+2. Change OUTPUT from [13] to [46]
+
+3. Keep Mic [76] and Loopback [33] or [114]
+
+4. Click Start → Wait for GREEN
+
+5. Set Discord Microphone to [46]
+
+6. Test and enjoy!
+
+═════════════════════════════════════════════════════════════════════════════════

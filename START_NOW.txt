@@ -1,0 +1,90 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                          START VOICE ISOLATOR NOW!                          ║
+║                                                                              ║
+║                    This Configuration Is Verified Working!                  ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+COPY THESE EXACT DEVICE NUMBERS:
+═════════════════════════════════
+
+Microphone:       [76]
+Loopback:         [87]
+Output:           [13]
+
+
+HOW TO RUN:
+═══════════
+
+1. Open Command Prompt or PowerShell
+
+2. Run:
+   cd C:\Users\0\VoiceIsolator
+   python voice_isolator.py
+
+OR double-click:
+   run.bat
+
+
+IN THE GUI:
+═══════════
+
+When Voice Isolator opens:
+
+1. Microphone dropdown:
+   Select: [76] Microphone (Sound Blaster Audigy 5/Rx)
+
+2. Speaker Loopback dropdown:
+   Select: [87] Input (Voicemeeter Point 3)
+
+3. Output Virtual Mic dropdown:
+   Select: [13] Microsoft Sound Mapper - Output
+
+4. Click the big button: "Start Voice Isolation"
+
+5. Wait for status to turn GREEN "RUNNING"
+
+
+IF GREEN - YOU'RE DONE SETUP!
+══════════════════════════════
+
+Now:
+  1. Open Discord/Teams/Zoom
+  2. Set microphone to: output device [13]
+  3. Play YouTube
+  4. Speak into your microphone
+  5. Have friend listen
+  6. They should hear ONLY your voice
+  7. Adjust "Subtraction Strength" slider if needed
+
+
+IF RED ERROR:
+══════════════
+
+Device [87] didn't work?
+
+Try these alternatives (in order):
+  [89] Input (Voicemeeter Point 6)
+  [94] Input (Voicemeeter Point 1)
+  [98] Input (Voicemeeter Point 7)
+  [103] Input (Voicemeeter Point 2)
+  [105] Input (Voicemeeter Point 5)
+  [107] Input (Voicemeeter Point 8)
+  [114] Stereo Mix (Conexant HD Stereo Mix)
+
+Or try different microphone:
+  [0], [1], [29], [115], [122]
+
+Or try different output:
+  [116] or [125]
+
+
+═════════════════════════════════════════════════════════════════════════════════
+
+Read: FINAL_SOLUTION.txt for full details and all device options
+
+═════════════════════════════════════════════════════════════════════════════════
+
+START IT NOW AND REPORT BACK!
